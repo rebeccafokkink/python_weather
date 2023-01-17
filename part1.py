@@ -25,3 +25,22 @@ results = {         #create a dictionary with city, state, weather station and t
 
 with open('results.json', 'w', encoding='utf-8') as file:
     json.dump(results, file, indent=4)
+
+#part 2
+total_yearly_precipitation = sum(total_monthly_precipitation)
+
+relative_monthly_precipitation_list = []
+for monthly_precipitation in total_monthly_precipitation:
+    relative_monthly_precipitation = monthly_precipitation/total_yearly_precipitation
+    relative_monthly_precipitation_list.append(relative_monthly_precipitation)
+
+results = {         #create a dictionary with city, state, weather station and total_monthly_precipitation
+    "Seattle": {
+        "State": "WA",
+        "Weather station": "GHCND:US1WAKG0038",
+        "Relative precipitation per month": relative_monthly_precipitation_list
+    }
+}
+
+with open('results.json', 'w', encoding='utf-8') as file:
+    json.dump(results, file, indent=4)
