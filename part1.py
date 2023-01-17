@@ -27,12 +27,13 @@ with open('results.json', 'w', encoding='utf-8') as file:
     json.dump(results, file, indent=4)
 
 #part 2
-total_yearly_precipitation = sum(total_monthly_precipitation)
+total_yearly_precipitation = sum(total_monthly_precipitation)   #calculate yearly precipitation
 
-relative_monthly_precipitation_list = []
+relative_monthly_precipitation_list = []    #empty list to store relative monthly precipitation
 for monthly_precipitation in total_monthly_precipitation:
-    relative_monthly_precipitation = monthly_precipitation/total_yearly_precipitation
-    relative_monthly_precipitation_list.append(relative_monthly_precipitation)
+    relative_monthly_precipitation = monthly_precipitation/total_yearly_precipitation   #calculate relative
+                                                                                #monthly precipitation
+    relative_monthly_precipitation_list.append(relative_monthly_precipitation)  #append to list
 
 results = {         #create a dictionary with city, state, weather station, total precipitation
                     #per month and year, and relative monthly precipitation
@@ -47,3 +48,14 @@ results = {         #create a dictionary with city, state, weather station, tota
 
 with open('results.json', 'w', encoding='utf-8') as file:
     json.dump(results, file, indent=4)
+
+#part 3
+from csv import DictReader
+
+with open('stations.csv') as file:
+    stations = list(DictReader(file))
+
+for station in stations:        #attempt to access each station
+    station_city = station['Location']
+    station_state = station['State']
+    station_code = station['Station']
