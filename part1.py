@@ -1,3 +1,4 @@
+#part 1
 import json
 
 with open('precipitation.json', encoding = 'utf-8') as file:
@@ -14,15 +15,13 @@ for measurement in seattle_measurements:    #Go through all the measurements
     precipitation = measurement['value']    #value for precipitation
     total_monthly_precipitation[month-1] += precipitation #sum to total precipitation per month
 
-print(total_monthly_precipitation)
-
-# this JSON file should contain a dictionary with city names as the keys, and
-#the values being another dictionary containing: the corresponding state, weather station, 
-# total precipitation per month
-
-results = {
+results = {         #create a dictionary with city, state, weather station and total_monthly_precipitation
     "Seattle": {
-        "State": "WA"
-        
+        "State": "WA",
+        "Weather station": "GHCND:US1WAKG0038",
+        "Total precipitation per month": total_monthly_precipitation
     }
 }
+
+with open('results.json', 'w', encoding='utf-8') as file:
+    json.dump(results, file, indent=4)
