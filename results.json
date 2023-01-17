@@ -2,6 +2,21 @@
     "Seattle": {
         "State": "WA",
         "Weather station": "GHCND:US1WAKG0038",
+        "Total precipitation per month": [
+            1693,
+            730,
+            870,
+            752,
+            924,
+            601,
+            54,
+            104,
+            996,
+            908,
+            1192,
+            2356
+        ],
+        "Total precipitation per year": 11180,
         "Relative precipitation per month": [
             0.15143112701252237,
             0.06529516994633273,
